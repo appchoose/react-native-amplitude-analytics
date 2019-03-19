@@ -29,6 +29,6 @@
     "react-native": "*"
   },
   "dependencies": {
-    "fbjs": "^0.8.5"
+    "fbjs": "^1.0.0"
   }
 }
