@@ -44,6 +44,11 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void setEventUploadThreshold(int threshold) {
+    Amplitude.getInstance().setEventUploadThreshold(threshold);
+  }
+
+  @ReactMethod
   public void setUserId(String id) {
     Amplitude.getInstance().setUserId(id);
   }
@@ -72,6 +77,12 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   public void getDeviceId(Promise promise) {
     String deviceId = Amplitude.getInstance().getDeviceId();
     promise.resolve(deviceId);
+  }
+
+  @ReactMethod
+  public void getSessionId(Promise promise) {
+    Long sessionId = Amplitude.getInstance().getSessionId();
+    promise.resolve(sessionId.doubleValue());
   }
 
   @ReactMethod

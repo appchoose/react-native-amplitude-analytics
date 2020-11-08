@@ -89,6 +89,9 @@ class testApp extends Component {
   constructor() {
     super();
     const amplitude = new RNAmplitude('Your Amplitude key');
+
+    // set event upload threshold
+    amplitude.setEventUploadThreshold(30);
 	 
     // log an event
     amplitude.logEvent(eventName);
@@ -133,6 +136,9 @@ class testApp extends Component {
 
     // get device id as logged in Amplitude
     amplitude.getDeviceId().then(deviceId => ...)
+
+    // get the current session ID as logged in Amplitude
+    amplitude.getSessionId().then(sessionId => ...)
   }
   ...
 }

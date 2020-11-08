@@ -14,10 +14,12 @@ export default class Amplitude {
   // --------------------------------------------------
   // Identify
   // --------------------------------------------------
+  setEventUploadThreshold(threshold: number): void;
   setUserId(userId: string | number | null): void;
   setUserProperties(properties: Record<string, any>): void;
   setOptOut(optOut: boolean): void;
   clearUserProperties(): void;
+  getSessionId(): Promise<number>;
   getDeviceId(): Promise<string>;
   setDeviceId(deviceId: string | number | null): void;
   regenerateDeviceId(): void;

@@ -37,6 +37,15 @@ class Amplitude {
   // --------------------------------------------------
   // Identify
   // --------------------------------------------------
+
+  setEventUploadThreshold(threshold) {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.setEventUploadThreshold(threshold);
+    } else {
+      throw new Error('You called Amplitude.setEventUploadThreshold before initializing it. Run new Amplitute(key) first.');
+    }
+  }
+
   setUserId(userId) {
     if (amplitudeHasInitialized) {
       return RNAmplitudeSDK.setUserId(userId ? userId.toString() : null);
@@ -74,6 +83,14 @@ class Amplitude {
       return RNAmplitudeSDK.getDeviceId();
     } else {
       throw new Error('You called Amplitude.getDeviceId before initializing it. Run new Amplitude(key) first.')
+    }
+  }
+
+  getSessionId() {
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.getSessionId();
+    } else {
+      throw new Error('You called Amplitude.getSessionId before initializing it. Run new Amplitute(key) first.');
     }
   }
 

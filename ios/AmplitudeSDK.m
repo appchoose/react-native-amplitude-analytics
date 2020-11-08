@@ -11,6 +11,11 @@ RCT_EXPORT_METHOD(initialize:(NSString* )writeKey setTrackSessionEvents:(BOOL) t
      [[Amplitude instance] initializeApiKey: writeKey];
 }
 
+RCT_EXPORT_METHOD(setEventUploadThreshold:(int)threshold)
+{
+    [[Amplitude instance] setEventUploadThreshold:[NSNumber numberWithInt:threshold]];
+}
+
 RCT_EXPORT_METHOD(setUserId:(NSString *)userId)
 {
      [[Amplitude instance] setUserId:userId];
@@ -35,6 +40,13 @@ RCT_REMAP_METHOD(getDeviceId, getDeviceIdWithResolver:(RCTPromiseResolveBlock)re
 {
     NSString *deviceId = [[Amplitude instance] getDeviceId];
     resolve(deviceId);
+}
+
+RCT_REMAP_METHOD(getSessionId, getSessionIdWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    long long sessionId = [[Amplitude instance] getSessionId];
+    NSNumber *sessionIdNsNumber = [NSNumber numberWithLongLong: sessionId];
+    resolve(sessionIdNsNumber);
 }
 
 RCT_EXPORT_METHOD(setDeviceId:(NSString *)deviceId)
