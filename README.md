@@ -131,8 +131,14 @@ class testApp extends Component {
     // add to user property
     amplitude.addToUserProperty(property, amount)
 
+    // append to user property
+    amplitude.appendToUserProperty(property, 'stringValue')
+
+    // prepend to user property
+    amplitude.prependToUserProperty(property, 'stringValue')
+
     // set user property once
-    amplitude.setUserPropertyOnce(property, value)
+    amplitude.setUserPropertyOnce(property, 'stringValue')
 
     // get device id as logged in Amplitude
     amplitude.getDeviceId().then(deviceId => ...)
